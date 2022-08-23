@@ -37,7 +37,7 @@ if(((isset($_POST['word'])) && $_POST['word'] != null) &&
 ?>
 
 <div class="container-fluid">
-    <div class="col-6 mx-auto">
+    <div class="col-sm-12 col-md-6 mx-auto">
         <div class="py-5"><h2>Ajouter une définition</h2></div>
         <form action="#" method="post">
             <div class="mb-3">
