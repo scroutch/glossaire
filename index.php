@@ -52,6 +52,8 @@ include('bdd.php');
             include('./add.php');
         }else if($page == 3) {
             include('./connect.php');
+        }else if($page == 4) {
+            include('./inscription.php');
         }
     }else{
         include('./home.php');

@@ -11,5 +11,6 @@
             <input type="password" class="form-control" id="exampleInputPassword1">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="index.php?page=4" class="btn btn-warning" tabindex="-1" role="button" aria-disabled="true">Pas encore inscrit?</a>
     </form>
 </div>
