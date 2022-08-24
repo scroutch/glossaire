@@ -19,7 +19,7 @@
     <?php
         foreach($tabNav as $alphabet){
     ?>     
-            <li class="page-item"><a class="page-link" href="index.php?page=1&first_letter=<?= $alphabet ?>"><?= $alphabet ?></a></li>
+            <li class="page-item"><a class="page-link" href="index.php?page=1&first_letter=<?php echo $alphabet ?>"><?php echo $alphabet ?></a></li>
     <?php
         }
     ?>
@@ -28,8 +28,9 @@
 
 <?php
 
-if(isset($_GET['first_letter']) && $_GET['first_letter'] != null) {
+if(isset($_GET['first_letter'])) {
     $lettre = $_GET['first_letter'];
+    $lettre = mb_strtoupper($lettre);
     // echo $lettre;
     $query = 'SELECT * FROM definition where first_letter like :lettre ';
     $query = $bdd->prepare($query);
@@ -41,14 +42,14 @@ if(isset($_GET['first_letter']) && $_GET['first_letter'] != null) {
     <div class="container-fluid">
         <div class="col-sm-12 col-md-6 col-lg-3 mx-auto accordion" id="accordionExample">
             <div class="accordion-item">
-                <h2 class="accordion-header" id="heading<?= $compteur ?>">
-                    <button class="accordion-button text-bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?= $compteur ?>" aria-expanded="true" aria-controls="collapse<?= $compteur ?>" >
-                        <?= $result['word'] ?>
+                <h2 class="accordion-header" id="heading<?php echo '-'.$compteur ?>">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo '-'.$compteur ?>" aria-expanded="false" aria-controls="collapse<?php echo '-'.$compteur ?>" >
+                        <?php echo $result['word'] ?>
                     </button>
                 </h2>
-                <div id="collapse<?= $compteur ?>" class="accordion-collapse collapse" aria-labelledby="heading<?= $compteur ?>" data-bs-parent="#accordionExample">
+                <div id="collapse<?php echo '-'.$compteur ?>" class="accordion-collapse collapse" aria-labelledby="heading<?php echo '-'.$compteur ?>" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                        <?= $result['definition'] ?>
+                        <?php echo $result['definition'] ?>
                     </div>
                 </div>
             </div>
