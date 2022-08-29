@@ -33,11 +33,28 @@ include('bdd.php');
                                 <i class="bi bi-plus-square pe-4"></i>Ajouter
                             </a>
                         </li>
-                        <li class="nav-item me-5">
-                            <a class="nav-link text-dark" href="index.php?page=3">
-                                <i class="bi bi-person-fill pe-4"></i>Login
-                            </a>
-                        </li>
+                            <?php if(!isset($_SESSION['id'])) { ?>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link text-dark" href="index.php?page=3">
+                                        <i class="bi bi-person-fill pe-4"></i>Login
+                                    </a>
+                                </li>
+                                <?php }else{ ?>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link text-dark" href="index.php?page=5">
+                                        <i class="bi bi-person-fill pe-4"></i>Gestion
+                                    </a>
+                                </li>
+                                <li class="nav-item me-5">
+                                    <a class="nav-link text-dark" href="./logout.php">
+                                        <i class="bi bi-person-fill pe-4"></i>Se déconnecter
+                                    </a>
+                                </li>
+                                <?php 
+                                    
+                                } ?>
+                            
+                        
                     </ul>
             </div>
         </nav>
@@ -54,25 +71,11 @@ include('bdd.php');
             include('./connect.php');
         }else if($page == 4) {
             include('./inscription.php');
+        }else if($page == 5) {
+            include('./gestion.php');
         }
     }else{
         include('./home.php');
-    }
-
-    if($_SESSION['username']) {
-        ?>
-            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-                <img src="..." class="rounded me-2" alt="...">
-                <strong class="me-auto">Bootstrap</strong>
-                <small>11 mins ago</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                Bienvenue <?php echo $_SESSION['username'] ?>
-            </div>
-            </div>
-        <?php
     }
     
     ?>

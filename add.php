@@ -10,13 +10,15 @@ if(((isset($_POST['word'])) && $_POST['word'] != null) &&
     $def = $_POST['def'];
     $firstLetter = substr($word, 0 , 1);
     $firstLetter = strtoupper($firstLetter);
+    $id_user = $_SESSION['id'];
     
 
-    $query = 'insert into definition (word, definition, first_letter) values (:word, :def, :firstLetter)';
+    $query = 'insert into definition (word, definition, first_letter, id_user) values (:word, :def, :firstLetter, :id_user)';
     $req = $bdd -> prepare($query);
     $req -> bindValue(':word', $word, PDO::PARAM_STR);
     $req -> bindValue(':def', $def, PDO::PARAM_STR);
     $req -> bindValue(':firstLetter', $firstLetter, PDO::PARAM_STR);
+    $req -> bindValue(':id_user', $id_user, PDO::PARAM_INT);
     $req -> execute();
     $success = true;
 

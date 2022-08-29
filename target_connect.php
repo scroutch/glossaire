@@ -17,7 +17,18 @@ if((isset($_POST['username']) && $_POST['username'] != null) &&
     if(!empty($result)) {
         if(password_verify($password, $result['password'])) {
             $_SESSION['username'] = $result['username'];
-            header('Location=./index.php?page=1');
+            $_SESSION['id'] = $result['id'];
+            if($_SESSION['id']) {
+                ?>
+                    <div class="alert alert-success" role="alert">
+                        Bienvenue <?php $_SESSION['username'] ?>
+                    </div>
+                <?php
+                // var_dump($_SESSION['username']);
+                header('Location: ./index.php?page=1');
+            }
+            // var_dump($_SESSION['id']);
+            
         } else {
             echo 'Mot de passe incorrect';
             header('refresh: 2; url=./index.php?page=3');
@@ -27,3 +38,5 @@ if((isset($_POST['username']) && $_POST['username'] != null) &&
         header('refresh: 2; url=./index.php?page=3');
     }
 }
+
+?>
