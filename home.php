@@ -29,7 +29,7 @@
 <?php
 
 if(isset($_GET['first_letter'])) {
-    $lettre = $_GET['first_letter'];
+    $lettre = strip_tags($_GET['first_letter']);
     $lettre = mb_strtoupper($lettre);
     // echo $lettre;
     $query = 'SELECT * FROM definition where first_letter like :lettre ';

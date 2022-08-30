@@ -76,6 +76,10 @@ include('bdd.php');
             include('./inscription.php');
         } else if ($page == 5) {
             include('./gestion.php');
+        } else if ($page == 6) {
+            include('./form_gestion.php');
+        } else if ($page == 7) {
+            include('./form_update.php');
         }
     } else {
         include('./home.php');

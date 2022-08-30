@@ -13,3 +13,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 
     header('Location: index.php?page=5');
 }
+?>
+
+

@@ -6,8 +6,8 @@ $success = false;
 
 if(((isset($_POST['word'])) && $_POST['word'] != null) && 
 ((isset($_POST['def'])) && $_POST['def'] != null)) {
-    $word = $_POST['word'];
-    $def = $_POST['def'];
+    $word = strip_tags($_POST['word']);
+    $def = strip_tags($_POST['def']);
     $firstLetter = substr($word, 0 , 1);
     $firstLetter = strtoupper($firstLetter);
     $id_user = $_SESSION['id'];

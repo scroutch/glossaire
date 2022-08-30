@@ -33,9 +33,9 @@ if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
                             <td><?php echo $result['definition'] ?></td>
                             <td><?php echo $result['created_at'] ?></td>
                             <td><?php echo $result['id_user'] ?></td>
-                            <td><a href="./update.php?id=<?php echo $result['id'] ?>"><i class="bi bi-pencil pe-4"></i></a>
-                            
-                            <a data-href="./delete.php?id=<?php echo $result['id'] ?>" data-toggle="modal" data-target="#confirm-delete"><i class="bi bi-trash"></i></a>
+                            <td>
+                                <a href="./index.php?page=7&id=<?php echo $result['id'] ?>"><i class="bi bi-pencil pe-4 text-warning"></i></a>                          
+                                <a href="./index.php?page=6&id=<?php echo $result['id'] ?>"><i class="bi bi-trash text-danger"></i></a>
                             </td>
                         </tr>
 
