@@ -4,7 +4,7 @@
 
     var_dump($_SESSION);
 
-    session_destroy();
+    session_unset();
     header('Location: ./index.php?page=1');
     exit;
     var_dump($_SESSION);
