@@ -4,8 +4,8 @@ include('bdd.php');
 
 if((isset($_POST['username']) && $_POST['username'] != null) && 
 (isset($_POST['password']) && $_POST['password'] != null)) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = strip_tags($_POST['username']);
+    $password = strip_tags($_POST['password']);
 
     // var_dump($_POST);
     $query = 'SELECT * FROM user where username = :username';

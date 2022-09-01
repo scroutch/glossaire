@@ -8,7 +8,7 @@ if((isset($_POST['mail']) && $_POST['mail'] != null) &&
 (isset($_POST['username']) && $_POST['username'] != null) && 
 (isset($_POST['password']) && $_POST['password'] != null)) {
     $mail = $_POST['mail'];
-    $username = $_POST['username'];
+    $username = strip_tags($_POST['username']);
     $hash = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
     // var_dump($_POST);
