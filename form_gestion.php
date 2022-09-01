@@ -1,9 +1,10 @@
 <div class="container py-5 d-flex justify-content-center">
     <div class="row">
-        <form action=./delete.php" method="post">
+        <form action="./delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
             <p>Etes vous sur de vouloir supprimer ?</p>
-            <button type="reset" class="btn btn-secondary" onclick="history.back()">Annuler</button>
-            <a href="./delete.php?id=<?php echo $_GET['id'] ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
+            <input type="text" class="btn btn-secondary" onclick="history.back()" value="annuler"></input>
+            <a href="index.php?page=5"><input type="submit" class="btn btn-danger" value="supprimer"></input></a>
         </form>
     </div>
 </div>
